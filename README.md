@@ -15,6 +15,7 @@ Deis depends on the following cookbooks:
 - `apt` - for managing Ubuntu PPAs
 - `sudo` - for managing /etc/sudoers.d
 - `rsyslog` - for configuring log routing and aggregation
+- `users` - for managing sysadmin users
 
 [Berkshelf](http://berkshelf.com) is used for managing cookbook dependencies.
 
@@ -51,6 +52,11 @@ The runtime recipe will prepare a node for hosting Docker containers as part of 
  * Rsyslog client
 
 The runtime recipe will iterate over the `deis-formations` databag and configure and start upstart daemons for any Docker containers assigned to this node.
+
+#### deis::users
+The users recipe will add systems users specified in the `users` databag that are in the `sysadmin` group and give them `sudo` access.
+
+ * Sysadmin Logins
 
 #### deis::proxy
 The proxy recipe will prepare a node for routing traffic to containers in a Deis runtime layer.  This recipe will configure:

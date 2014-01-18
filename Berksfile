@@ -5,4 +5,3 @@ metadata
 cookbook 'apt'
 cookbook 'rsyslog'
 cookbook 'sudo'
-

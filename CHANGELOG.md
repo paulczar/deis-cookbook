@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of deis.
 
+## 0.4.2:
+
+* manage sysadmin users via `users` databag.
+
 ## 0.1.0:
 
 * Initial release of deis
