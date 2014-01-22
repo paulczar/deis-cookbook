@@ -25,20 +25,13 @@ user 'git' do
   action :create
 end
 
-# create a docker group and grant it access to
-# /var/run/docker.sock
+# add git to docker group so that
+# it gets access to /var/run/docker.sock
 group 'docker' do
-  members ['git']
-  action :create
-  system true
+  members 'git'
+  action :modify
+  append true
 end
-
-execute 'set-docker-sock-perms' do
-  command 'chgrp docker /var/run/docker.sock'
-  not_if "ls -l /var/run/docker.sock | awk {'print $4'} | grep docker"
-  action :run
-end
-
 
 # allow the git user to run a hook that creates
 # a new build & release via local python code

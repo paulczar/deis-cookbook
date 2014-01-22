@@ -15,3 +15,19 @@ service 'docker' do
   supports :status => true, :restart => true, :reload => true
   action [ :enable ]
 end
+
+# create a docker user
+# and make sure it owns /var/run/docker.sock
+
+user 'docker' do
+  action :create
+  system true
+  not_if { 'id docker' }
+end
+
+execute 'set-docker-sock-perms' do
+  command 'chgrp docker /var/run/docker.sock'
+  not_if "ls -l /var/run/docker.sock | awk {'print $4'} | grep docker"
+  action :run
+end
+
