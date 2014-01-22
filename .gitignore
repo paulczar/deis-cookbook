@@ -1,4 +1,5 @@
 .vagrant
+.zero-knife.rb
 
 .DS_Store
 

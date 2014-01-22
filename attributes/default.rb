@@ -45,6 +45,11 @@ default.deis.runtime.slug_dir = '/opt/deis/runtime/slugs'
 default.deis.runtime.repository = 'https://github.com/flynn/slugrunner'
 default.deis.runtime.revision = 'master'
 
+# knife
+default.deis.knife.client_key_source = '/etc/chef/client.pem'
+default.deis.knife.validation_key_source = '/etc/chef/validation.pem'
+default.deis.knife.client_rb_source = '/etc/chef/client.rb'
+
 # rsyslog
 default['rsyslog']['log_dir'] = '/var/log/rsyslog'
 default['rsyslog']['protocol'] = 'tcp'

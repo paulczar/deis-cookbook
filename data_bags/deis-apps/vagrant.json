@@ -1,0 +1,6 @@
+{
+  "id": "vagrant",
+  "users": {
+    "vagrant": "owner"
+  }
+}

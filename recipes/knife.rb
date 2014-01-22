@@ -24,20 +24,20 @@ file client_key_path do
   user username
   group group
   mode 0600
-  content File.read('/etc/chef/client.pem')
+  content File.read(node.deis.knife.client_key_source)
 end
 
 file validator_key_path do
   user username
   group group
   mode 0600
-  content File.read('/etc/chef/validation.pem')
+  content File.read(node.deis.knife.validation_key_source)
 end
 
 file "#{knife_dir}/knife.rb" do
   user username
   group group
   mode 0600
-  content File.read('/etc/chef/client.rb')
+  content File.read(node.deis.knife.client_rb_source)
 end
 
